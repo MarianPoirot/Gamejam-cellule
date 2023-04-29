@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://bac5bo0stuxjd"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Enemy.gd" id="1_wbxys"]
+[ext_resource type="Texture2D" uid="uid://druqblhx6ebgq" path="res://Assets/kirbo/kirbo.png" id="2_5uy0q"]
+[ext_resource type="Texture2D" uid="uid://dsg2sjqfqqgkg" path="res://Assets/kirbo/kirbo2.png" id="3_58e2r"]
+[ext_resource type="Texture2D" uid="uid://prb5607gxtfy" path="res://Assets/kirbo/kirbo3.png" id="4_td5an"]
+[ext_resource type="Texture2D" uid="uid://b7o7tg1cjn23k" path="res://Assets/kirbo/kirbo4.png" id="5_2h43a"]
+[ext_resource type="Texture2D" uid="uid://brn2njaboixox" path="res://Assets/kirbo/kirbo5.png" id="6_srwap"]
+[ext_resource type="Texture2D" uid="uid://0774vjqmudlv" path="res://Assets/kirbo/kirbo6.png" id="7_ossg6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vaksd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5uy0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_58e2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_td5an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2h43a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_srwap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ossg6")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6l6h"]
+radius = 127.0
+height = 254.0
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_wbxys")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_vaksd")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k6l6h")
