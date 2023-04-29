@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp5ysnurplg1j"]
+[gd_scene load_steps=3 format=3 uid="uid://dp5ysnurplg1j"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGame.gd" id="1_7r3xs"]
+[ext_resource type="Texture2D" uid="uid://7ob8ynsr6t4k" path="res://icon.svg" id="2_s25xx"]
 
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_7r3xs")
@@ -16,3 +17,24 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 54
 text = "Temps : 0"
+
+[node name="ResourcesGrid" type="GridContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -83.0
+offset_right = 187.0
+offset_bottom = -25.0
+grow_vertical = 0
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="ResourcesGrid"]
+layout_mode = 2
+texture = ExtResource("2_s25xx")
+expand_mode = 2
+
+[node name="Resource" type="Label" parent="ResourcesGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = " : 200"

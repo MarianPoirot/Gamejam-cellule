@@ -1,11 +1,15 @@
 extends CanvasLayer
 
+class_name InGameUI
+
 @onready
 var _timeLabel : Label = $Time
+@onready
+var _resourceLabel : Label = $ResourcesGrid/Resource
 
 var _runStart : int = 0
 
-func startGame():
+func _startRun():
 	_runStart = Time.get_ticks_msec()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,3 +23,7 @@ func updateTime():
 	var sec = "%02d" % (inSecond%60)
 	var msec = "%03d" % (currentTime%1000)
 	_timeLabel.text = min + ":" + sec + ":" + msec
+
+func updateResources(nb : int):
+	_resourceLabel.text = " : " + str(nb)
+ 
