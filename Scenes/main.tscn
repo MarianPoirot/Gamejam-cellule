@@ -23,8 +23,13 @@ offset_bottom = 40.0
 texture = ExtResource("3_76do6")
 
 [node name="Map" type="TileMap" parent="."]
+
 position = Vector2(0, 32)
 scale = Vector2(2, 2)
+
+visible = false
+position = Vector2(3, 3)
+
 tile_set = ExtResource("2_hpp5r")
 format = 2
 script = ExtResource("3_yfgde")
