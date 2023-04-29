@@ -1,5 +1,6 @@
-[gd_scene load_steps=51 format=3 uid="uid://cetcjfwlkbibe"]
+[gd_scene load_steps=53 format=3 uid="uid://cetcjfwlkbibe"]
 
+[ext_resource type="Script" path="res://Scripts/Cellule.gd" id="1_gk0te"]
 [ext_resource type="Texture2D" uid="uid://bb3o83vcm4pm" path="res://Assets/Sprites/Cellule/cellule0000.png" id="1_njaje"]
 [ext_resource type="Texture2D" uid="uid://cp0wj1apukyxj" path="res://Assets/Sprites/Cellule/cellule0001.png" id="2_2j1hd"]
 [ext_resource type="Texture2D" uid="uid://c44yqv11phmfs" path="res://Assets/Sprites/Cellule/cellule0002.png" id="3_2h17q"]
@@ -205,11 +206,22 @@ animations = [{
 "speed": 48.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nx3b0"]
+radius = 480.0
+
 [node name="Cellule" type="Node2D"]
 scale = Vector2(0.1, 0.1)
+script = ExtResource("1_gk0te")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_be82w")
 animation = &"Cellule"
 autoplay = "Cellule"
-frame_progress = 0.221344
+frame_progress = 0.850659
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_nx3b0")
+
+[connection signal="input_event" from="Area2D" to="." method="_hit"]

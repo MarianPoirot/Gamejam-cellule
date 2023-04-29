@@ -14,10 +14,10 @@ script = ExtResource("2_jejfx")
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("2_o3ebu")
 
-[node name="StaticBody2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_myj5b")
 
-[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="input_event" from="Area2D" to="." method="_on_static_body_2d_input_event"]
