@@ -81,6 +81,7 @@ func _on_start_button_button_down():
 	new_game()
 
 func newCell(origine : Vector2):
+	origine = _map.alignCoord(origine)
 	var dest = _map.findNeighbor(origine)
 	if dest != origine:
 		var cell = _cellScene.instantiate()
