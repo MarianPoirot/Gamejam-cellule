@@ -4,6 +4,8 @@ class_name Cellule
 
 signal getHit
 
+var life=100
+
 func Spawn(dest : Vector2):
 	var tween = get_tree().create_tween()
 	tween.parallel().tween_property(self, "scale", Vector2.ONE*0.1, 1).set_trans(Tween.TRANS_QUAD)
@@ -13,3 +15,13 @@ func Spawn(dest : Vector2):
 func _hit(viewport, event, shape_idx):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
 		emit_signal("getHit")
+
+#Manage damage when enemy enter cell
+func _on_area_2d_area_entered(area):
+	var enemy=area.get_parent()
+	life-=enemy.strength
+	if life<=0:
+		die()
+
+func die():
+	queue_free()
