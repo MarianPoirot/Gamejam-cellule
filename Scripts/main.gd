@@ -21,7 +21,6 @@ var _cellulesPool = $Cellules
 func _ready():
 	UI._startRun()
 	UI.updateResources(nbResource)
-	_pinTimer.start(rng.randi_range(1,5))
 
 	#Cellule originelle
 	var gridCoord = _map.alignCoord(_map.center())
@@ -35,6 +34,7 @@ func _ready():
 
 func new_game():
 	$MobTimer.start()
+	_pinTimer.start(rng.randi_range(1,5))
 
 func _unhandled_input(event):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
@@ -79,6 +79,7 @@ func _on_mob_timer_timeout():
 
 func _on_start_button_button_down():
 	$MobTimer.stop()
+	_pinTimer.stop()
 	get_tree().call_group("mobs", "queue_free")
 	new_game()
 
