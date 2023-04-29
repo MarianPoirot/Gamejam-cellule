@@ -30,6 +30,8 @@ func _ready():
 	cell.getHit.connect(HitBase)
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
+	
+	new_game()
 
 func new_game():
 	$MobTimer.start()
