@@ -153,6 +153,7 @@ sprite_frames = SubResource("SpriteFrames_vaksd")
 animation = &"virus_move"
 autoplay = "kirbo_move"
 
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_k6l6h")
 

@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://fsr32ee4hmlv"]
+[gd_scene load_steps=7 format=3 uid="uid://fsr32ee4hmlv"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
+[ext_resource type="PackedScene" uid="uid://bac5bo0stuxjd" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
 [ext_resource type="TileSet" uid="uid://nty2jgp37jxk" path="res://Assets/MainMap.tres" id="2_hpp5r"]
-[ext_resource type="PackedScene" uid="uid://dp5ysnurplg1j" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
+
+[sub_resource type="Curve2D" id="Curve2D_gi1cx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1600, 0, 0, 0, 0, 0, 1600, 900, 0, 0, 0, 0, 0, 900, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Main" type="CanvasLayer"]
 script = ExtResource("1_1vhrc")
+Enemy = ExtResource("2_7anw3")
 
 [node name="Map" type="TileMap" parent="."]
 position = Vector2(3, 3)
@@ -21,6 +29,23 @@ script = ExtResource("3_yfgde")
 
 [node name="InGame" parent="." instance=ExtResource("3_xv34q")]
 
-[node name="PinSpawn" type="Timer" parent="."]
 
-[connection signal="timeout" from="PinSpawn" to="." method="_spawnPin"]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_gi1cx")
+
+[node name="EnemyPathFollow" type="PathFollow2D" parent="EnemyPath"]
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 776.0
+offset_top = 423.0
+offset_right = 822.0
+offset_bottom = 454.0
+text = "Start"
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
+
