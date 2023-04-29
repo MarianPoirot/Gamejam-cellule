@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dp5ysnurplg1j"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGame.gd" id="1_7r3xs"]
-[ext_resource type="Texture2D" uid="uid://dxllry3skqvam" path="res://Assets/Sprites/Sucre/sucre.png" id="2_f6rgk"]
+[ext_resource type="Texture2D" uid="uid://rwxl8hi5r04e" path="res://Assets/Sprites/Sucre/sucre.png" id="2_f6rgk"]
 
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_7r3xs")
