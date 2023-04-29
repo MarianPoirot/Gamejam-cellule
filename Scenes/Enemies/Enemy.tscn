@@ -167,5 +167,6 @@ shape = SubResource("CapsuleShape2D_k6l6h")
 [node name="CooldownAttack" type="Timer" parent="."]
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="ClickArea" to="." method="_on_click_area_area_entered"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="CooldownAttack" to="." method="_on_cooldown_attack_timeout"]
