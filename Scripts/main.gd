@@ -61,9 +61,8 @@ func _on_mob_timer_timeout():
 	# Add some randomness to the direction.
 	direction += randf_range(-PI / 4, PI / 4)
 	mob.rotation = direction
-	# Set the velocity (speed & direction).
-	mob.velocity = Vector2(randf_range(mob.min_speed, mob.max_speed), 0)
-
+	# Set the velocity (speed).
+	mob.speed = randf_range(mob.min_speed, mob.max_speed)
 
 func _on_start_button_button_down():
 	$MobTimer.stop()
