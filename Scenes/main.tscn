@@ -20,3 +20,7 @@ script = ExtResource("3_yfgde")
 [node name="RunTimer" type="Timer" parent="."]
 
 [node name="InGame" parent="." instance=ExtResource("3_xv34q")]
+
+[node name="PinSpawn" type="Timer" parent="."]
+
+[connection signal="timeout" from="PinSpawn" to="." method="_spawnPin"]

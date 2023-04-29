@@ -9,10 +9,6 @@ func _ready():
 	var cellPos : Vector2i = local_to_map(center)
 	set_cell(0, cellPos,0, productiveCellCoord)
 
-func _unhandled_input(event):
-	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
-		var cellPos : Vector2i = local_to_map(get_global_mouse_position())
-
 func isProductiveCell() -> bool:
 	var textureCoord = get_cell_atlas_coords(0, local_to_map(get_local_mouse_position()))
 	return textureCoord == productiveCellCoord
