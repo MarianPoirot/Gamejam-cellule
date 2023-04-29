@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0774vjqmudlv"
-path="res://.godot/imported/kirbo6.png-03082d7fed73212eebae9292437f360c.ctex"
+uid="uid://llglrqad4mok"
+path="res://.godot/imported/virus0015.png-18436f1423befcbd5ea67ee884e0dfef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kirbo/kirbo6.png"
-dest_files=["res://.godot/imported/kirbo6.png-03082d7fed73212eebae9292437f360c.ctex"]
+source_file="res://Assets/Sprites/Virus/virus0015.png"
+dest_files=["res://.godot/imported/virus0015.png-18436f1423befcbd5ea67ee884e0dfef.ctex"]
 
 [params]
 

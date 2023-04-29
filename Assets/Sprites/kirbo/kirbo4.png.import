@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://druqblhx6ebgq"
-path="res://.godot/imported/kirbo.png-1758dfd13ec6bee454f0354beab922a7.ctex"
+uid="uid://b7o7tg1cjn23k"
+path="res://.godot/imported/kirbo4.png-3fb2af8614c5f4b2684e19fe4a6591fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/kirbo/kirbo.png"
-dest_files=["res://.godot/imported/kirbo.png-1758dfd13ec6bee454f0354beab922a7.ctex"]
+source_file="res://Assets/Sprites/kirbo/kirbo4.png"
+dest_files=["res://.godot/imported/kirbo4.png-3fb2af8614c5f4b2684e19fe4a6591fe.ctex"]
 
 [params]
 
