@@ -22,11 +22,21 @@ func _ready():
 	UI._startRun()
 	UI.updateResources(nbResource)
 	_pinTimer.start(rng.randi_range(1,5))
-	newCell(_map.center())
+	
+	#Cellule originelle
+	var gridCoord = _map.alignCoord(_map.center())
+	var cell = _cellScene.instantiate()
+	cell.position = gridCoord
+	cell.getHit.connect(HitBase)
+	_cellulesPool.add_child(cell)
+	cell.Spawn(gridCoord)
 
 func new_game():
 	$MobTimer.start()
 
+func _unhandled_input(event):
+	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
+		newCell(_map.center())
 
 func _spawnPin():
 	var entity : Node2D = _pinScene.instantiate()
@@ -64,16 +74,16 @@ func _on_mob_timer_timeout():
 	# Set the velocity (speed & direction).
 	mob.velocity = Vector2(randf_range(mob.min_speed, mob.max_speed), 0)
 
-
 func _on_start_button_button_down():
 	$MobTimer.stop()
 	get_tree().call_group("mobs", "queue_free")
 	new_game()
 
 func newCell(origine : Vector2):
-	var gridCoord = _map.alignCoord(origine)
-	var cell = _cellScene.instantiate()
-	cell.position = _map.center()
-	cell.getHit.connect(HitBase)
-	_cellulesPool.add_child(cell)
-	cell.Spawn(_map.center())
+	var dest = _map.findNeighbor(origine)
+	if dest != origine:
+		var cell = _cellScene.instantiate()
+		cell.position = origine
+		cell.getHit.connect(HitBase)
+		_cellulesPool.add_child(cell)
+		cell.Spawn(dest)
