@@ -5,7 +5,7 @@ class_name Main
 var nbResource : int = 0
 
 var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
-var _celScene : PackedScene = preload("res://Scenes/Cellule.tscn")
+var _cellScene : PackedScene = preload("res://Scenes/Cellule.tscn")
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 @onready
@@ -24,11 +24,6 @@ func _ready():
 	_pinTimer.start(rng.randi_range(1,5))
 	newCell(_map.center())
 
-func _unhandled_input(event):
-	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
-		if(_map.isProductiveCell()):
-			IncreaseResource(1)
-
 func new_game():
 	$MobTimer.start()
 
@@ -45,12 +40,13 @@ func HitBonus(pin : Node2D):
 	pin.queue_free()
 	IncreaseResource(100)
 
+func HitBase():
+	IncreaseResource(1)
+
 func IncreaseResource(nb : int):
 	nbResource+=nb
 	UI.updateResources(nbResource)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+
 
 func _on_mob_timer_timeout():
 	var mob = Enemy.instantiate()
@@ -73,8 +69,10 @@ func _on_start_button_button_down():
 	get_tree().call_group("mobs", "queue_free")
 	new_game()
 
-func newCell(coord : Vector2):
-	var gridCoord = _map.alignCoord(coord)
-	var cell = _celScene.instantiate()
-	cell.position = gridCoord
+func newCell(origine : Vector2):
+	var gridCoord = _map.alignCoord(origine)
+	var cell = _cellScene.instantiate()
+	cell.position = _map.center()
+	cell.getHit.connect(HitBase)
 	_cellulesPool.add_child(cell)
+	cell.Spawn(_map.center())
