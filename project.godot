@@ -11,15 +11,17 @@ config_version=5
 [application]
 
 config/name="Gamejam-cellule"
+config/description="Protégez et améliorez vos cellules pour combatre les virus !"
 run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Sprites/Cellule/cellule0000.png"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://Assets/Sprites/Cursor/cursor.png"
 
 [layer_names]
 
