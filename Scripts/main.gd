@@ -12,7 +12,7 @@ var UI : InGameUI = $InGame
 @onready
 var _map = $Map
 @onready
-var _pinTimer : Timer = $PinSpawn
+var _pinTimer : Timer = $PinTimer
 @export var Enemy: PackedScene
 
 func _ready():

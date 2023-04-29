@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
 [ext_resource type="PackedScene" uid="uid://2oduk43wu31c" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
 [ext_resource type="TileSet" uid="uid://nty2jgp37jxk" path="res://Assets/MainMap.tres" id="2_hpp5r"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
+[ext_resource type="PackedScene" uid="uid://dp5ysnurplg1j" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi1cx"]
@@ -25,10 +25,9 @@ script = ExtResource("3_yfgde")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="RunTimer" type="Timer" parent="."]
+[node name="PinTimer" type="Timer" parent="."]
 
 [node name="InGame" parent="." instance=ExtResource("3_xv34q")]
-
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -47,8 +46,6 @@ offset_right = 1597.0
 offset_bottom = 33.0
 text = "Restart"
 
+[connection signal="timeout" from="PinTimer" to="." method="_spawnPin"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-
-
 [connection signal="button_down" from="RestartButton" to="." method="_on_start_button_button_down"]
-
