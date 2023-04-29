@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp5ysnurplg1j"]
+[gd_scene load_steps=9 format=3 uid="uid://dp5ysnurplg1j"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGame.gd" id="1_7r3xs"]
 [ext_resource type="Texture2D" uid="uid://dxllry3skqvam" path="res://Assets/Sprites/Sucre/sucre.png" id="2_f6rgk"]
+[ext_resource type="Texture2D" uid="uid://bybpx2isrrlj" path="res://Assets/Sprites/Cellule-prod/cellule-prod0000.png" id="3_a2580"]
+[ext_resource type="Texture2D" uid="uid://dslmay2804fp0" path="res://Assets/Sprites/Cellule-prod/cell-prod-disabled.png" id="4_g07c4"]
+[ext_resource type="Texture2D" uid="uid://bru824h2760qe" path="res://Assets/Sprites/Cellule-combat/cellule-combat.png" id="4_mif7i"]
+[ext_resource type="Texture2D" uid="uid://dt00yj0i56lqj" path="res://Assets/Sprites/Cellule-combat/cellule-combat-disabled.png" id="6_rpiep"]
+[ext_resource type="Texture2D" uid="uid://dl8po6mf7jnsm" path="res://Assets/Sprites/Cellule-division/cellule-division0000.png" id="7_4877j"]
+[ext_resource type="Texture2D" uid="uid://bramp3mvyml75" path="res://Assets/Sprites/Cellule-division/Cellule-division-disabled.png" id="8_avt65"]
 
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_7r3xs")
@@ -34,3 +40,90 @@ expand_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = " : 200"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -180.0
+offset_right = 685.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.56, 1)
+color = Color(0.473976, 0.473976, 0.473976, 0.196078)
+
+[node name="Upgrade" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -172.0
+offset_right = 2704.0
+offset_bottom = 472.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Upgrade"]
+layout_mode = 2
+
+[node name="Prod" type="TextureButton" parent="Upgrade/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_a2580")
+texture_disabled = ExtResource("4_g07c4")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Upgrade/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Prix : 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Upgrade"]
+layout_mode = 2
+
+[node name="Combat" type="TextureButton" parent="Upgrade/VBoxContainer2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("4_mif7i")
+texture_disabled = ExtResource("6_rpiep")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Upgrade/VBoxContainer2"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Prix : 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Upgrade"]
+layout_mode = 2
+
+[node name="Division" type="TextureButton" parent="Upgrade/VBoxContainer3"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("7_4877j")
+texture_disabled = ExtResource("8_avt65")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Upgrade/VBoxContainer3"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Prix : 100"
+horizontal_alignment = 1
+vertical_alignment = 1

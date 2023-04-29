@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7ocpastxvfd"
-path="res://.godot/imported/fullTiles.png-22a74960698a3c123b9553c6082efa43.ctex"
+uid="uid://cygmveytjaqfy"
+path="res://.godot/imported/cellule-division0001.png-c6e7fc2b8901cf946e95215a3ebeb74c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tmp/fullTiles.png"
-dest_files=["res://.godot/imported/fullTiles.png-22a74960698a3c123b9553c6082efa43.ctex"]
+source_file="res://Assets/Sprites/Cellule-division/cellule-division0001.png"
+dest_files=["res://.godot/imported/cellule-division0001.png-c6e7fc2b8901cf946e95215a3ebeb74c.ctex"]
 
 [params]
 
