@@ -25,11 +25,10 @@ texture = ExtResource("3_76do6")
 [node name="Map" type="TileMap" parent="."]
 visible = false
 position = Vector2(3, 3)
+scale = Vector2(2, 2)
 tile_set = ExtResource("2_hpp5r")
 format = 2
 script = ExtResource("3_yfgde")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="PinTimer" type="Timer" parent="."]
 
