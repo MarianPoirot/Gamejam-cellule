@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://x5ljwa6kpnlf"]
 
-[ext_resource type="Texture2D" uid="uid://db373u41a6swg" path="res://Assets/pin.png" id="1_2ikcg"]
+[ext_resource type="Texture2D" uid="uid://rwxl8hi5r04e" path="res://Assets/Sprites/Sucre/sucre.png" id="2_6xlom"]
 [ext_resource type="Script" path="res://Scripts/Pin.gd" id="2_jejfx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpcgd"]
@@ -13,7 +13,7 @@ script = ExtResource("2_jejfx")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("1_2ikcg")
+texture = ExtResource("2_6xlom")
 
 [node name="StaticBody2D" type="Area2D" parent="."]
 collision_layer = 4
