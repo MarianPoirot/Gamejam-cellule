@@ -14,10 +14,8 @@ var life
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	closestCell = get_closest_cell()
-	if closestCell:
-		target_position= closestCell.position
 	
+	#Send a random type of enemy
 	var roll = randi()%100
 	if (roll < 99):
 		$AnimatedSprite2D.animation = "virus_move"
@@ -32,12 +30,18 @@ func _ready():
 		strength = 1000
 		life = 2
 
+func start():
+	#Get closest cell to focus and target it
+	closestCell = get_closest_cell()
+	if closestCell:
+		target_position= closestCell.position
+
 func get_closest_cell():
 	var min_dist = 9999
 	var min_cell
 	var cells = get_tree().get_nodes_in_group("cells")
 	for cell in cells:
-		dist = self.position.distance_to(cell.position)
+		dist = self.global_position.distance_to(cell.position)
 
 		if (dist < min_dist):
 			min_dist = dist
@@ -61,6 +65,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 
 func _on_cooldown_attack_timeout():
 	$CooldownAttack.stop()
+	#Get closest cell to focus and target it
 	closestCell = get_closest_cell()
 	if closestCell:
 		target_position= closestCell.position
