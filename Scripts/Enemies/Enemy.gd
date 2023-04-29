@@ -4,11 +4,12 @@ extends CharacterBody2D
 @export var max_speed = 300  # Maximum speed range.
 var speed = 0
 var target_position= Vector2(800,450)
-
+var attack = false
+var move = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var roll = randi()%100
-	if (roll < 70):
+	if (roll < 99):
 		$AnimatedSprite2D.animation = "virus_move"
 		$AnimatedSprite2D.scale.x=0.125
 		$AnimatedSprite2D.scale.y=0.125
@@ -18,9 +19,10 @@ func _ready():
 		$AnimatedSprite2D.scale.y=0.25
 
 func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(target_position)
-	velocity = direction*speed
-	self.move_and_slide()
+	if move:
+		var direction = global_position.direction_to(target_position)
+		velocity = direction*speed
+		self.move_and_slide()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
@@ -29,3 +31,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
 		queue_free()
+
+func _on_cooldown_attack_timeout():
+	pass # Replace with function body.
