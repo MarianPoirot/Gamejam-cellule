@@ -59,21 +59,21 @@ func IncreaseResource(nb : int):
 
 
 func _on_mob_timer_timeout():
-	var mob = Enemy.instantiate()
 	# Choose a random location on Path2D.
 	$EnemyPath/EnemyPathFollow.progress_ratio = randi()
-	# Create a Mob instance and add it to the scene.
-	add_child(mob)
 	# Set the mob's direction perpendicular to the path direction.
 	var direction = $EnemyPath/EnemyPathFollow.rotation + PI / 2
+	# Create a Mob instance and add it to the scene.
+	var mob = Enemy.instantiate()
+	add_child(mob)
 	# Set the mob's position to a random location.
 	mob.position = $EnemyPath/EnemyPathFollow.position
 	# Add some randomness to the direction.
 	direction += randf_range(-PI / 4, PI / 4)
 	mob.rotation = direction
-
 	# Set the velocity (speed).
 	mob.speed = randf_range(mob.min_speed, mob.max_speed)
+	mob.start()
 
 func _on_start_button_button_down():
 	$MobTimer.stop()
