@@ -157,6 +157,7 @@ autoplay = "kirbo_move"
 scale = Vector2(6, 6)
 
 [node name="ClickArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 shape = SubResource("CapsuleShape2D_k6l6h")
@@ -164,5 +165,15 @@ shape = SubResource("CapsuleShape2D_k6l6h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_k6l6h")
 
+[node name="CooldownAttack" type="Timer" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_k6l6h")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="CooldownAttack" to="." method="_on_cooldown_attack_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
