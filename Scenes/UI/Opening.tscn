@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5qhqps6fwnoa"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Opening.gd" id="1_hq14v"]
+
+[node name="Opening" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hq14v")
