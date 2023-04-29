@@ -5,6 +5,7 @@ class_name Main
 var nbResource : int = 0
 
 var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
+var _celScene : PackedScene = preload("res://Scenes/Cellule.tscn")
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 @onready
@@ -13,12 +14,15 @@ var UI : InGameUI = $InGame
 var _map = $Map
 @onready
 var _pinTimer : Timer = $PinTimer
+@onready
+var _cellulesPool = $Cellules
 @export var Enemy: PackedScene
 
 func _ready():
 	UI._startRun()
 	UI.updateResources(nbResource)
 	_pinTimer.start(rng.randi_range(1,5))
+	newCell(_map.center())
 
 func _unhandled_input(event):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
@@ -69,3 +73,8 @@ func _on_start_button_button_down():
 	get_tree().call_group("mobs", "queue_free")
 	new_game()
 
+func newCell(coord : Vector2):
+	var gridCoord = _map.alignCoord(coord)
+	var cell = _celScene.instantiate()
+	cell.position = gridCoord
+	_cellulesPool.add_child(cell)
