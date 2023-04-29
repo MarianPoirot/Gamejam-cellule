@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://x5ljwa6kpnlf"]
 
-[ext_resource type="Texture2D" uid="uid://db373u41a6swg" path="res://Assets/pin.png" id="1_2ikcg"]
 [ext_resource type="Script" path="res://Scripts/Pin.gd" id="2_jejfx"]
+[ext_resource type="Texture2D" uid="uid://dxllry3skqvam" path="res://Assets/Sprites/Sucre/sucre.png" id="2_o3ebu"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpcgd"]
-radius = 17.0
-height = 52.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_myj5b"]
+radius = 24.0208
 
 [node name="Pin" type="Node2D"]
 z_index = 1
@@ -13,11 +12,12 @@ script = ExtResource("2_jejfx")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("1_2ikcg")
+texture = ExtResource("2_o3ebu")
 
 [node name="StaticBody2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CapsuleShape2D_cpcgd")
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_myj5b")
 
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]

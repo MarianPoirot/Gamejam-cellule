@@ -212,4 +212,4 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_be82w")
 animation = &"Cellule"
 autoplay = "Cellule"
-frame_progress = 0.00392067
+frame_progress = 0.221344
