@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://fsr32ee4hmlv"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
-[ext_resource type="TileSet" uid="uid://b0nbgqhnbwx3f" path="res://Assets/MainMap.tres" id="2_hpp5r"]
+[ext_resource type="TileSet" uid="uid://nty2jgp37jxk" path="res://Assets/MainMap.tres" id="2_hpp5r"]
 [ext_resource type="PackedScene" uid="uid://dp5ysnurplg1j" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
 

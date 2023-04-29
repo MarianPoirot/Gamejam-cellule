@@ -10,7 +10,7 @@ var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 @onready
 var UI : InGameUI = $InGame
 @onready
-var _map : Map = $Map
+var _map = $Map
 @onready
 var _pinTimer : Timer = $PinSpawn
 

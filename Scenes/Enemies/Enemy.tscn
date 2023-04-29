@@ -1,50 +1,161 @@
-[gd_scene load_steps=10 format=3 uid="uid://bac5bo0stuxjd"]
+[gd_scene load_steps=35 format=3 uid="uid://2oduk43wu31c"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Enemy.gd" id="1_wbxys"]
-[ext_resource type="Texture2D" uid="uid://druqblhx6ebgq" path="res://Assets/kirbo/kirbo.png" id="2_5uy0q"]
-[ext_resource type="Texture2D" uid="uid://dsg2sjqfqqgkg" path="res://Assets/kirbo/kirbo2.png" id="3_58e2r"]
-[ext_resource type="Texture2D" uid="uid://prb5607gxtfy" path="res://Assets/kirbo/kirbo3.png" id="4_td5an"]
-[ext_resource type="Texture2D" uid="uid://b7o7tg1cjn23k" path="res://Assets/kirbo/kirbo4.png" id="5_2h43a"]
-[ext_resource type="Texture2D" uid="uid://brn2njaboixox" path="res://Assets/kirbo/kirbo5.png" id="6_srwap"]
-[ext_resource type="Texture2D" uid="uid://0774vjqmudlv" path="res://Assets/kirbo/kirbo6.png" id="7_ossg6"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/kirbo/kirbo.png" id="2_70ifg"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/kirbo/kirbo2.png" id="3_6n8po"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/kirbo/kirbo3.png" id="4_madyb"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/kirbo/kirbo4.png" id="5_2mu2f"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/kirbo/kirbo5.png" id="6_3b8pw"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/kirbo/kirbo6.png" id="7_fje0t"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0000.png" id="8_i8wm1"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0001.png" id="9_ywt3d"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0002.png" id="10_2ht3v"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0003.png" id="11_c1kq4"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0004.png" id="12_3dcke"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0005.png" id="13_ayf33"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0006.png" id="14_rdl64"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0007.png" id="15_1p0wc"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0008.png" id="16_7tnor"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0009.png" id="17_ld5lg"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0010.png" id="18_6qscy"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0011.png" id="19_ocpud"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0012.png" id="20_bs4x4"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0013.png" id="21_s3d0f"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0014.png" id="22_kf1nb"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0015.png" id="23_huwkm"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0016.png" id="24_o60v4"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0017.png" id="25_gtbn6"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0018.png" id="26_rccx6"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0019.png" id="27_ho1dt"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0020.png" id="28_n2hqr"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0021.png" id="29_ykxkc"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0022.png" id="30_l2ien"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0023.png" id="31_jwyrq"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Virus/virus0024.png" id="32_ihprl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vaksd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5uy0q")
+"texture": ExtResource("2_70ifg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_58e2r")
+"texture": ExtResource("3_6n8po")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_td5an")
+"texture": ExtResource("4_madyb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_2h43a")
+"texture": ExtResource("5_2mu2f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_srwap")
+"texture": ExtResource("6_3b8pw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_ossg6")
+"texture": ExtResource("7_fje0t")
 }],
 "loop": true,
-"name": &"move",
+"name": &"kirbo_move",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_i8wm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ywt3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2ht3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c1kq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3dcke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ayf33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rdl64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1p0wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7tnor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ld5lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6qscy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ocpud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bs4x4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s3d0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kf1nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_huwkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_o60v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gtbn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_rccx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ho1dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_n2hqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ykxkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_l2ien")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jwyrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ihprl")
+}],
+"loop": true,
+"name": &"virus_move",
+"speed": 24.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6l6h"]
-radius = 127.0
-height = 254.0
+radius = 52.0
+height = 104.0
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["mobs"]]
+collision_mask = 2
 script = ExtResource("1_wbxys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_vaksd")
-animation = &"move"
+animation = &"virus_move"
+autoplay = "kirbo_move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_k6l6h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
