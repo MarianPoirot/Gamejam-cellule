@@ -62,8 +62,7 @@ func _on_mob_timer_timeout():
 	direction += randf_range(-PI / 4, PI / 4)
 	mob.rotation = direction
 	# Set the velocity (speed & direction).
-	mob.linear_velocity = Vector2(randf_range(mob.min_speed, mob.max_speed), 0)
-	mob.linear_velocity = mob.linear_velocity.rotated(direction)
+	mob.velocity = Vector2(randf_range(mob.min_speed, mob.max_speed), 0)
 
 
 func _on_start_button_button_down():

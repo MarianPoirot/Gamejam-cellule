@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://fsr32ee4hmlv"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
-[ext_resource type="PackedScene" uid="uid://bac5bo0stuxjd" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
+[ext_resource type="PackedScene" uid="uid://2oduk43wu31c" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
 [ext_resource type="TileSet" uid="uid://nty2jgp37jxk" path="res://Assets/MainMap.tres" id="2_hpp5r"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
@@ -38,14 +38,17 @@ curve = SubResource("Curve2D_gi1cx")
 [node name="EnemyPathFollow" type="PathFollow2D" parent="EnemyPath"]
 
 [node name="MobTimer" type="Timer" parent="."]
+wait_time = 2.0
 
-[node name="StartButton" type="Button" parent="."]
-offset_left = 776.0
-offset_top = 423.0
-offset_right = 822.0
-offset_bottom = 454.0
-text = "Start"
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 1526.0
+offset_top = 2.0
+offset_right = 1597.0
+offset_bottom = 33.0
+text = "Restart"
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
+
+
+[connection signal="button_down" from="RestartButton" to="." method="_on_start_button_button_down"]
 
