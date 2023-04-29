@@ -220,6 +220,7 @@ autoplay = "Cellule"
 frame_progress = 0.850659
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_nx3b0")

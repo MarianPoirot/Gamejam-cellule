@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var min_speed = 50  # Minimum speed range.
-@export var max_speed = 300  # Maximum speed range.
+@export var max_speed = 150  # Maximum speed range.
 var speed = 0
 var target_position= Vector2(800,450)
 var attack = false
@@ -24,7 +24,7 @@ func _ready():
 		$AnimatedSprite2D.scale.y=0.25
 
 func get_closest_cell():
-	var min_dist = 99999
+	var min_dist = 9999
 	var min_cell
 	var cells = get_tree().get_nodes_in_group("cells")
 	for cell in cells:
@@ -43,10 +43,14 @@ func _physics_process(_delta: float) -> void:
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
-
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
 		queue_free()
 
 func _on_cooldown_attack_timeout():
-	pass # Replace with function body.
+	target_position= closestCell.position
+	move = true
+
+func _on_click_area_area_entered(area):
+	emit_signal("hit")
+	
