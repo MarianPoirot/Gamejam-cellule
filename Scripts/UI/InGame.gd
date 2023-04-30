@@ -50,6 +50,15 @@ func _on_prod_button_toggled(button_pressed):
 		emit_signal("selectUpdate",-1)
 
 
+func _on_combat_button_toggled(button_pressed):
+	if(button_pressed):
+		prodButton.button_pressed = false
+		divisionButton.button_pressed = false
+		emit_signal("selectUpdate",1)
+	if(!button_pressed && combatButton.pressed):
+		emit_signal("selectUpdate",-1)
+
+
 func _on_division_button_toggled(button_pressed):
 	if(button_pressed):
 		prodButton.button_pressed = false
@@ -63,3 +72,5 @@ func UpdateCost(costs : Array):
 	$Upgrade/ProdPrice.text = "Prix : " + str(costs[0])
 	$Upgrade/CombatPrice.text = "Prix : " + str(costs[1])
 	$Upgrade/DivisionPrice.text = "Prix : " + str(costs[2])
+
+
