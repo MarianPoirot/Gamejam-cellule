@@ -10,8 +10,8 @@ var currentUpgrade : int = -1
 
 func TransformProd():
 	$AnimatedSprite2D.animation = "Cellule_prod"
-	scale *= 2
-	$ProdTimer.start()
+	$AnimatedSprite2D.scale *= 2
+	$ProdTimer.start(1)
 	
 func TransformAttack():
 	$AnimatedSprite2D.animation = "Cellule_attack"
@@ -51,3 +51,4 @@ func die():
 
 func _on_prod_timer_timeout():
 	emit_signal("getPoint")
+	$ProdTimer.start(1)

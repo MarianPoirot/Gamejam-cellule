@@ -454,3 +454,4 @@ shape = SubResource("CircleShape2D_nx3b0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_hit"]
+[connection signal="timeout" from="ProdTimer" to="." method="_on_prod_timer_timeout"]
