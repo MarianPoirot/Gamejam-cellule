@@ -9,18 +9,17 @@ var life=100
 var manager : Main
 var currentUpgrade : int = -1
 
-var target : Node2D
+var target : Array
 var carreauScene = preload("res://Scenes/Carreau.tscn")
 
 func _process(_delta):
-	if currentUpgrade == 1 && target == null:
-		target = get_closest_enemy()
-		if(target != null):
-			$ShootTimer.start()
-		else:
+	while target.size() > 0 && target[0] == null:
+		target.remove_at(0)
+	if currentUpgrade == 1:
+		if target.size() == 0:
 			$ShootTimer.stop()
-	if currentUpgrade == 1 && target != null:
-		look_at(target.position)
+		else:
+			look_at(target[0].position)
 
 func TransformProd():
 	$AnimatedSprite2D.play("Cellule_prod")
@@ -96,10 +95,16 @@ func get_closest_enemy():
 
 
 func _on_shoot_timer_timeout():
-	if target != null:
+	if target.size() > 0:
+		var pos = target[0].position
 		var spear = carreauScene.instantiate()
 		spear.position = position
-		
-		spear.dir = (target.position - position).normalized()
-		spear.look_at(target.position)
+		spear.dir = (pos - position).normalized()
+		spear.look_at(pos)
 		get_parent().add_child(spear)
+
+
+func _on_detection_zone_area_entered(area):
+	target.append(area.get_parent())
+	if($ShootTimer.is_stopped() && currentUpgrade == 1):
+		$ShootTimer.start()
