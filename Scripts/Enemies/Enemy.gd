@@ -17,6 +17,7 @@ signal enemyDying(Enemy)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	mainScene = get_parent()
 	#Send a random type of enemy
 	var roll = randi()%100
 	var roll2 = randi()%100
@@ -64,8 +65,7 @@ func _ready():
 		$AnimatedSprite2D.scale.x *=1.8
 		$AnimatedSprite2D.scale.y *=1.8
 
-func start(main : Main):
-	mainScene = main
+func start():
 	#Get closest cell to focus and target it
 	closestCell = get_closest_cell()
 	if closestCell:
