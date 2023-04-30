@@ -2,6 +2,8 @@ extends CanvasLayer
 
 class_name InGameUI
 
+signal selectUpdate(index : int)
+
 @onready
 var _timeLabel : Label = $Time
 @onready
@@ -38,4 +40,23 @@ func updateResources(nb : int):
 	prodButton.disabled = nb<prodPrice
 	combatButton.disabled = nb<combatPrice
 	divisionButton.disabled = nb<divisionPrice
- 
+
+
+
+func _on_prod_button_toggled(button_pressed):
+	if(button_pressed):
+		combatButton.button_pressed = false
+		divisionButton.button_pressed = false
+		emit_signal("selectUpdate",0)
+	if(!button_pressed && prodButton.pressed):
+		emit_signal("selectUpdate",-1)
+
+
+func _on_division_button_toggled(button_pressed):
+	if(button_pressed):
+		prodButton.button_pressed = false
+		combatButton.button_pressed = false
+		emit_signal("selectUpdate",2)
+	if(!button_pressed && divisionButton.pressed):
+		emit_signal("selectUpdate",-1)
+
