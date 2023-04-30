@@ -140,6 +140,7 @@ func OnEnemyDie(enemy):
 	$CPUParticles2D.position = enemy.position
 	$CPUParticles2D.modulate=Color(1,1,1,1)
 	$CPUParticles2D.emitting = true
+	
 func generalUpgrade(index : int):
 	clicDamage += 0.2
 	IncreaseResource(-1* upgradesCost[index])
