@@ -10,6 +10,7 @@ var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
 var _cellScene : PackedScene = preload("res://Scenes/Cellule.tscn")
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
+@export
 var upgradesCost : Array
 
 @onready
@@ -22,14 +23,17 @@ var _pinTimer : Timer = $PinTimer
 var _cellulesPool = $Cellules
 @export var Enemy: PackedScene
 
+@export var clicDamage = 1
+
 func _ready():
 	new_game()
+	UI.generalUpgrade.connect(generalUpgrade)
 
 func new_game():
 	$MobTimer.start()
 	_pinTimer.start(rng.randi_range(1,5))
 	
-	upgradesCost = [100,100,10]
+	upgradesCost = [100,100,10, 50]
 	UI._startRun()
 	UI.UpdateCost(upgradesCost)
 	UI.updateResources(nbResource)
@@ -125,3 +129,8 @@ func removeCellFromMap(cell : Node2D):
 func game_over():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
+
+func generalUpgrade(index : int):
+	if index == 1:
+		clicDamage += 0.2
+		#UI.UpdateCost(upgradesCost)
