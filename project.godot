@@ -36,3 +36,4 @@ start={
 2d_physics/layer_1="Ennemies"
 2d_physics/layer_2="Cells"
 2d_physics/layer_3="Bonus"
+2d_physics/layer_4="Fleche"
