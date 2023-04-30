@@ -10,9 +10,7 @@ var _timeLabel : Label = $Time
 var _resourceLabel : Label = $ResourcesGrid/Resource
 
 var _runStart : int = 0
-var prodPrice : int = 100
-var combatPrice : int = 100
-var divisionPrice : int = 100
+var _costs : Array
 
 @onready
 var prodButton : TextureButton = $Upgrade/ProdButton
@@ -37,9 +35,9 @@ func updateTime():
 
 func updateResources(nb : int):
 	_resourceLabel.text = " : " + str(nb)
-	prodButton.disabled = nb<prodPrice
-	combatButton.disabled = nb<combatPrice
-	divisionButton.disabled = nb<divisionPrice
+	prodButton.disabled = nb<_costs[0]
+	combatButton.disabled = nb<_costs[1]
+	divisionButton.disabled = nb<_costs[2]
 
 
 
@@ -60,3 +58,8 @@ func _on_division_button_toggled(button_pressed):
 	if(!button_pressed && divisionButton.pressed):
 		emit_signal("selectUpdate",-1)
 
+func UpdateCost(costs : Array):
+	_costs = costs
+	$Upgrade/ProdPrice.text = "Prix : " + str(costs[0])
+	$Upgrade/CombatPrice.text = "Prix : " + str(costs[1])
+	$Upgrade/DivisionPrice.text = "Prix : " + str(costs[2])
