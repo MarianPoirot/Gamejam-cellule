@@ -41,7 +41,7 @@ func new_game():
 	cell.getPoint.connect(HitBase)
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
-	
+	cell.justDying.connect(removeCellFromMap)
 
 func _spawnPin():
 	var entity : Node2D = _pinScene.instantiate()
@@ -90,7 +90,7 @@ func _on_start_button_button_down():
 	nbResource = 0
 	new_game()
 
-func newCell(origine : Vector2):
+func newCell(origine : Vector2, cellule : Cellule):
 	origine = _map.alignCoord(origine)
 	var dest = _map.findNeighbor(origine)
 	if dest != origine:
@@ -100,6 +100,9 @@ func newCell(origine : Vector2):
 		cell.getPoint.connect(HitBase)
 		_cellulesPool.add_child(cell)
 		cell.Spawn(dest)
+		cell.justDying.connect(removeCellFromMap)
+	else:
+		cellule.stopDivTimer()
 
 func updateUpgrade(index : int):
 	SELECTED_UPGRADE = index
@@ -109,3 +112,7 @@ func applyUpgradeCost():
 
 func CanBuyCurrent() -> bool:
 	return nbResource >= upgradeCost[SELECTED_UPGRADE]
+	
+func removeCellFromMap(cell : Node2D):
+	var mapCoord = _map.local_to_map(cell.position)
+	_map.set_cell(0, mapCoord, -1)

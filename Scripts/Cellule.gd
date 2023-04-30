@@ -3,6 +3,7 @@ extends Node2D
 class_name Cellule
 
 signal getPoint
+signal justDying(cell)
 
 var life=100
 var manager : Main
@@ -51,6 +52,7 @@ func _on_area_2d_area_entered(area):
 		die()
 
 func die():
+	emit_signal("justDying",self)
 	queue_free()
 
 func _on_prod_timer_timeout():
@@ -59,4 +61,7 @@ func _on_prod_timer_timeout():
 
 
 func _on_div_timer_timeout():
-	manager.newCell(position)
+	manager.newCell(position,self)
+
+func stopDivTimer():
+	$DivTimer.stop()
