@@ -8,6 +8,16 @@ var _timeLabel : Label = $Time
 var _resourceLabel : Label = $ResourcesGrid/Resource
 
 var _runStart : int = 0
+var prodPrice : int = 100
+var combatPrice : int = 100
+var divisionPrice : int = 100
+
+@onready
+var prodButton : TextureButton = $Upgrade/ProdButton
+@onready
+var combatButton : TextureButton = $Upgrade/CombatButton
+@onready
+var divisionButton : TextureButton = $Upgrade/DivisionButton
 
 func _startRun():
 	_runStart = Time.get_ticks_msec()
@@ -25,4 +35,7 @@ func updateTime():
 
 func updateResources(nb : int):
 	_resourceLabel.text = " : " + str(nb)
+	prodButton.disabled = nb<prodPrice
+	combatButton.disabled = nb<combatPrice
+	divisionButton.disabled = nb<divisionPrice
  
