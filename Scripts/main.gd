@@ -36,7 +36,6 @@ func new_game():
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
 	
-
 func _unhandled_input(event):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
 		newCell(_map.center())
@@ -81,6 +80,7 @@ func _on_mob_timer_timeout():
 func _on_start_button_button_down():
 	$MobTimer.stop()
 	_pinTimer.stop()
+	get_tree().call_group("pin", "queue_free")
 	get_tree().call_group("mobs", "queue_free")
 	_map.clear()
 	get_tree().call_group("cells", "queue_free")
