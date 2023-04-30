@@ -53,7 +53,7 @@ func _spawnPin():
 
 func HitBonus(pin : Node2D):
 	pin.queue_free()
-	IncreaseResource(10)
+	IncreaseResource(100)
 
 func HitBase():
 	IncreaseResource(1)
@@ -106,6 +106,6 @@ func updateUpgrade(index : int):
 
 func applyUpgradeCost():
 	IncreaseResource(-1* upgradeCost[SELECTED_UPGRADE])
-	if(nbResource < upgradeCost[SELECTED_UPGRADE]):
-		SELECTED_UPGRADE = -1
-	
+
+func CanBuyCurrent() -> bool:
+	return nbResource >= upgradeCost[SELECTED_UPGRADE]
