@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3qwe8a7bsghi"
-path="res://.godot/imported/cellule-division0019.png-779fb38bd69b5e684e5efda475b5fb57.ctex"
+uid="uid://goqnp37wo87"
+path="res://.godot/imported/cell-prod-disabled.png-46397a184bfe7af60094a7df257f600d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cellule-division/cellule-division0019.png"
-dest_files=["res://.godot/imported/cellule-division0019.png-779fb38bd69b5e684e5efda475b5fb57.ctex"]
+source_file="res://Assets/Sprites/Cellule-combat/cell-prod-disabled.png"
+dest_files=["res://.godot/imported/cell-prod-disabled.png-46397a184bfe7af60094a7df257f600d.ctex"]
 
 [params]
 

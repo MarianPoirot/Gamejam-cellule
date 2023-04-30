@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5qhqps6fwnoa"]
+[gd_scene load_steps=3 format=3 uid="uid://b5qhqps6fwnoa"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Opening.gd" id="1_hq14v"]
+[ext_resource type="FontFile" uid="uid://eo6ex64dkxt6" path="res://Assets/Fonts/Heart Breaking Bad.otf" id="2_b40g3"]
 
-[node name="Opening" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Opening" type="CanvasLayer"]
 script = ExtResource("1_hq14v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 696.0
+offset_top = 464.0
+offset_right = 974.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("2_b40g3")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 361.0
+offset_top = 106.0
+offset_right = 1271.0
+offset_bottom = 426.0
+theme_override_fonts/font = ExtResource("2_b40g3")
+theme_override_font_sizes/font_size = 150
+text = "(ostridium
+_tani"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]

@@ -19,10 +19,15 @@ var _cellulesPool = $Cellules
 @export var Enemy: PackedScene
 
 func _ready():
+	new_game()
+
+func new_game():
+	$MobTimer.start()
+	_pinTimer.start(rng.randi_range(1,5))
+	
 	UI._startRun()
 	UI.updateResources(nbResource)
-	_pinTimer.start(rng.randi_range(1,5))
-
+	
 	#Cellule originelle
 	var gridCoord = _map.alignCoord(_map.center())
 	var cell = _cellScene.instantiate()
@@ -30,9 +35,7 @@ func _ready():
 	cell.getHit.connect(HitBase)
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
-
-func new_game():
-	$MobTimer.start()
+	
 
 func _unhandled_input(event):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
@@ -77,7 +80,11 @@ func _on_mob_timer_timeout():
 
 func _on_start_button_button_down():
 	$MobTimer.stop()
+	_pinTimer.stop()
 	get_tree().call_group("mobs", "queue_free")
+	_map.clear()
+	get_tree().call_group("cells", "queue_free")
+	nbResource = 0
 	new_game()
 
 func newCell(origine : Vector2):
