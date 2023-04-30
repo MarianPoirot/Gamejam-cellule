@@ -20,12 +20,12 @@ func _ready():
 	if (roll < 99):
 		$AnimatedSprite2D.animation = "virus_move"
 		var roll2 = randi()%100
-		if (roll < 80):
+		if (roll2 < 80):
 			$AnimatedSprite2D.scale.x=0.125
 			$AnimatedSprite2D.scale.y=0.125
 			strength = 10
 			life = 1
-		elif (roll<95):
+		elif (roll2<95):
 			$AnimatedSprite2D.scale.x=0.175
 			$AnimatedSprite2D.scale.y=0.175
 			$ClickArea.scale.x=1.5

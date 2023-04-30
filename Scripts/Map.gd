@@ -9,7 +9,6 @@ func Init():
 	var cellPos : Vector2i = local_to_map(center)
 	set_cell(0, cellPos,0, occupedTile)
 
-
 func alignCoord(coord : Vector2) -> Vector2:
 	var cell = local_to_map(coord)
 	return map_to_local(cell)
