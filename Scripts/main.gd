@@ -28,6 +28,7 @@ var _cellulesPool = $Cellules
 func _ready():
 	new_game()
 	UI.generalUpgrade.connect(generalUpgrade)
+	$AudioStreamPlayer2D.play()
 
 func new_game():
 	$MobTimer.start()
@@ -133,6 +134,7 @@ func removeCellFromMap(cell : Node2D):
 func game_over():
 	Global.time = $InGame/Time.text
 	Global.score = $InGame/ResourcesGrid/Resource.text
+	$AudioStreamPlayer2D.stop()
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
 
