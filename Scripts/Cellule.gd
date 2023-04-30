@@ -9,17 +9,18 @@ var manager : Main
 var currentUpgrade : int = -1
 
 func TransformProd():
-	#$AnimatedSprite2D.animation = "Cellule_prod"
-	$AnimatedSprite2D.scale *= 2
 	$AnimatedSprite2D.play("Cellule_prod")
-	$ProdTimer.start(1)
+	$AnimatedSprite2D.scale *= 2
+	$ProdTimer.start()
 	
 func TransformAttack():
-	$AnimatedSprite2D.animation = "Cellule_attack"
-	scale *= 2
+	$AnimatedSprite2D.play("Cellule_attack")
+	$AnimatedSprite2D.scale *= 2
 
 func TransformDiv():
-	print("div")
+	$AnimatedSprite2D.play("Cellule_div")
+	$AnimatedSprite2D.scale *= 2
+	$DivTimer.start()
 	
 func Spawn(dest : Vector2):
 	$AnimatedSprite2D.animation = "Cellule"
@@ -32,6 +33,7 @@ func _hit(_viewport, event, _shape_idx):
 		if(event.button_index == MOUSE_BUTTON_LEFT):
 			emit_signal("getPoint")
 		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1:
+			currentUpgrade = manager.SELECTED_UPGRADE
 			match manager.SELECTED_UPGRADE:
 				0:
 					TransformProd()
@@ -53,3 +55,7 @@ func die():
 func _on_prod_timer_timeout():
 	emit_signal("getPoint")
 	$ProdTimer.start(1)
+
+
+func _on_div_timer_timeout():
+	manager.newCell(position)

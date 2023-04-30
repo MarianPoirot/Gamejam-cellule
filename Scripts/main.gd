@@ -29,7 +29,7 @@ func new_game():
 	
 	UI._startRun()
 	UI.updateResources(nbResource)
-	
+	_map.Init()
 	#Cellule originelle
 	var gridCoord = _map.alignCoord(_map.center())
 	var cell = _cellScene.instantiate()
@@ -38,10 +38,6 @@ func new_game():
 	cell.getPoint.connect(HitBase)
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
-
-#func _unhandled_input(event):
-#	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
-#		newCell(_map.center())
 
 func _spawnPin():
 	var entity : Node2D = _pinScene.instantiate()
@@ -102,5 +98,4 @@ func newCell(origine : Vector2):
 		cell.Spawn(dest)
 
 func updateUpgrade(index : int):
-	print("Test")
 	SELECTED_UPGRADE = index
