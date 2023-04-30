@@ -15,6 +15,7 @@ var mainScene : Main
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	mainScene = get_parent()
 	#Send a random type of enemy
 	var roll = randi()%100
 	if (roll < 99):
@@ -52,8 +53,7 @@ func _ready():
 		strength = 1000
 		life = 2
 
-func start(main : Main):
-	mainScene = main
+func start():
 	#Get closest cell to focus and target it
 	closestCell = get_closest_cell()
 	if closestCell:
