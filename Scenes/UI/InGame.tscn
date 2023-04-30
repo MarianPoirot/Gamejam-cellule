@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp5ysnurplg1j"]
+[gd_scene load_steps=15 format=3 uid="uid://dp5ysnurplg1j"]
 
 [ext_resource type="Script" path="res://Scripts/UI/InGame.gd" id="1_7r3xs"]
 [ext_resource type="Texture2D" uid="uid://rwxl8hi5r04e" path="res://Assets/Sprites/Sucre/sucre.png" id="2_f6rgk"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bej2u2yom0b6" path="res://Assets/Sprites/Cellule-combat/cellule-combat-selected.png" id="7_ugar4"]
 [ext_resource type="Texture2D" uid="uid://drfesw0rx44hx" path="res://Assets/Sprites/Cellule-division/Cellule-division-disabled.png" id="8_avt65"]
 [ext_resource type="Texture2D" uid="uid://b6sngh17ghqcu" path="res://Assets/Sprites/Cellule-division/Cellule-division-selected.png" id="10_ajnlq"]
+[ext_resource type="Texture2D" uid="uid://5l4ontcmxfus" path="res://Assets/Sprites/Cursor/cursor-grand.png" id="12_6qa6e"]
+[ext_resource type="Texture2D" uid="uid://j0bk7pyylngx" path="res://Assets/Sprites/Cursor/cursor-selected.png" id="13_cshrh"]
+[ext_resource type="Texture2D" uid="uid://wbu0em52e7ah" path="res://Assets/Sprites/Cursor/cursor-disabled.png" id="14_yhm3j"]
 
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_7r3xs")
@@ -129,8 +132,9 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 disabled = true
 toggle_mode = true
-texture_normal = ExtResource("7_4877j")
-texture_disabled = ExtResource("8_avt65")
+texture_normal = ExtResource("12_6qa6e")
+texture_pressed = ExtResource("13_cshrh")
+texture_disabled = ExtResource("14_yhm3j")
 stretch_mode = 3
 
 [node name="CursorPrice" type="Label" parent="Upgrade"]
@@ -144,3 +148,4 @@ vertical_alignment = 1
 [connection signal="toggled" from="Upgrade/ProdButton" to="." method="_on_prod_button_toggled"]
 [connection signal="toggled" from="Upgrade/CombatButton" to="." method="_on_combat_button_toggled"]
 [connection signal="toggled" from="Upgrade/DivisionButton" to="." method="_on_division_button_toggled"]
+[connection signal="toggled" from="Upgrade/CursorButton" to="." method="_on_cursor_button_toggled"]

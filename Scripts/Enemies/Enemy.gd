@@ -11,12 +11,12 @@ var strength
 var direction
 var dist
 var life
+var mainScene : Main
 
 signal enemyDying(Enemy)
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
+func _ready():	
 	#Send a random type of enemy
 	var roll = randi()%100
 	var roll2 = randi()%100
@@ -64,7 +64,8 @@ func _ready():
 		$AnimatedSprite2D.scale.x *=1.8
 		$AnimatedSprite2D.scale.y *=1.8
 
-func start():
+func start(main : Main):
+	mainScene = main
 	#Get closest cell to focus and target it
 	closestCell = get_closest_cell()
 	if closestCell:
@@ -93,7 +94,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
-		takeDamage(1)
+		takeDamage(mainScene.clicDamage)
 
 func _on_cooldown_attack_timeout():
 	$CooldownAttack.stop()
