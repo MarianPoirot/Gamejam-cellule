@@ -114,7 +114,7 @@ func applyUpgradeCost():
 	UI.UpdateCost(upgradesCost)
 
 func CanBuyCurrent() -> bool:
-	return nbResource >= upgradeCost[SELECTED_UPGRADE]
+	return nbResource >= upgradesCost[SELECTED_UPGRADE]
 	
 func removeCellFromMap(cell : Node2D):
 	var mapCoord = _map.local_to_map(cell.position)
