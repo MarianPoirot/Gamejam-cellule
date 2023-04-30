@@ -33,7 +33,7 @@ func new_game():
 	$MobTimer.start()
 	_pinTimer.start(rng.randi_range(1,5))
 	
-	upgradesCost = [100,100,10, 25]
+	upgradesCost = [200,1000,100, 25]
 	UI._startRun()
 	UI.UpdateCost(upgradesCost)
 	UI.updateResources(nbResource)
