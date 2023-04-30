@@ -9,16 +9,18 @@ var manager : Main
 var currentUpgrade : int = -1
 
 func TransformProd():
-	$AnimatedSprite2D.animation = "Cellule_prod"
+	$AnimatedSprite2D.play("Cellule_prod")
 	$AnimatedSprite2D.scale *= 2
-	$ProdTimer.start(1)
+	$ProdTimer.start()
 	
 func TransformAttack():
-	$AnimatedSprite2D.animation = "Cellule_attack"
-	scale *= 2
+	$AnimatedSprite2D.play("Cellule_attack")
+	$AnimatedSprite2D.scale *= 2
 
 func TransformDiv():
-	print("div")
+	$AnimatedSprite2D.play("Cellule_div")
+	$AnimatedSprite2D.scale *= 2
+	$DivTimer.start()
 	
 func Spawn(dest : Vector2):
 	$AnimatedSprite2D.animation = "Cellule"
@@ -26,11 +28,12 @@ func Spawn(dest : Vector2):
 	tween.parallel().tween_property(self, "scale", Vector2.ONE*0.1, 1).set_trans(Tween.TRANS_QUAD)
 	tween.parallel().tween_property(self, "position", dest, 1)
 
-func _hit(viewport, event, shape_idx):
+func _hit(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.is_pressed()):
 		if(event.button_index == MOUSE_BUTTON_LEFT):
 			emit_signal("getPoint")
-		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1:
+		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1 && manager.CanBuyCurrent():
+			currentUpgrade = manager.SELECTED_UPGRADE
 			match manager.SELECTED_UPGRADE:
 				0:
 					TransformProd()
@@ -38,6 +41,7 @@ func _hit(viewport, event, shape_idx):
 					TransformAttack()
 				2:
 					TransformDiv()
+			manager.applyUpgradeCost()
 
 #Manage damage when enemy enter cell
 func _on_area_2d_area_entered(area):
@@ -52,3 +56,7 @@ func die():
 func _on_prod_timer_timeout():
 	emit_signal("getPoint")
 	$ProdTimer.start(1)
+
+
+func _on_div_timer_timeout():
+	manager.newCell(position)

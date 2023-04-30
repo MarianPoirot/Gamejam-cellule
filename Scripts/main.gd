@@ -10,6 +10,8 @@ var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
 var _cellScene : PackedScene = preload("res://Scenes/Cellule.tscn")
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
+var upgradeCost : Array = [100,100,100]
+
 @onready
 var UI : InGameUI = $InGame
 @onready
@@ -29,7 +31,8 @@ func new_game():
 	
 	UI._startRun()
 	UI.updateResources(nbResource)
-	
+	_map.Init()
+	SELECTED_UPGRADE = -1
 	#Cellule originelle
 	var gridCoord = _map.alignCoord(_map.center())
 	var cell = _cellScene.instantiate()
@@ -38,10 +41,6 @@ func new_game():
 	cell.getPoint.connect(HitBase)
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
-
-#func _unhandled_input(event):
-#	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
-#		newCell(_map.center())
 
 func _spawnPin():
 	var entity : Node2D = _pinScene.instantiate()
@@ -102,5 +101,10 @@ func newCell(origine : Vector2):
 		cell.Spawn(dest)
 
 func updateUpgrade(index : int):
-	print("Test")
 	SELECTED_UPGRADE = index
+
+func applyUpgradeCost():
+	IncreaseResource(-1* upgradeCost[SELECTED_UPGRADE])
+
+func CanBuyCurrent() -> bool:
+	return nbResource >= upgradeCost[SELECTED_UPGRADE]
