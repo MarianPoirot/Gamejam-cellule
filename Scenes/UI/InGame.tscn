@@ -48,9 +48,9 @@ text = " : 200"
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -156.0
-offset_right = 243.0
-offset_bottom = 156.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 250.0
 grow_vertical = 2
 scale = Vector2(0.56, 1)
 mouse_filter = 2
@@ -62,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -808.0
-offset_top = -596.0
-offset_right = 192.0
-offset_bottom = 1344.0
+offset_left = -800.0
+offset_top = -600.0
+offset_right = 200.0
+offset_bottom = 1988.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.15, 0.15)
@@ -117,6 +117,23 @@ texture_disabled = ExtResource("8_avt65")
 stretch_mode = 3
 
 [node name="DivisionPrice" type="Label" parent="Upgrade"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Prix : 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CursorButton" type="TextureButton" parent="Upgrade"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+disabled = true
+toggle_mode = true
+texture_normal = ExtResource("7_4877j")
+texture_disabled = ExtResource("8_avt65")
+stretch_mode = 3
+
+[node name="CursorPrice" type="Label" parent="Upgrade"]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
