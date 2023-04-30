@@ -8,6 +8,12 @@ var life=100
 var manager : Main
 var currentUpgrade : int = -1
 
+var target 
+
+func _process(_delta):
+	if currentUpgrade == 1 && target != null:
+		look_at(target.position)
+
 func TransformProd():
 	$AnimatedSprite2D.play("Cellule_prod")
 	$AnimatedSprite2D.scale *= 2
@@ -16,6 +22,7 @@ func TransformProd():
 func TransformAttack():
 	$AnimatedSprite2D.play("Cellule_attack")
 	$AnimatedSprite2D.scale *= 2
+	target = get_closest_enemy()
 
 func TransformDiv():
 	$AnimatedSprite2D.play("Cellule_div")
@@ -60,3 +67,15 @@ func _on_prod_timer_timeout():
 
 func _on_div_timer_timeout():
 	manager.newCell(position)
+
+func get_closest_enemy():
+	var dist
+	var mobs = get_tree().get_nodes_in_group("mobs")
+	var min_mob = mobs[0]
+	var min_dist = self.global_position.distance_to(mobs[0].position)
+	for mob in mobs:
+		dist = self.global_position.distance_to(mob.position)
+		if (dist < min_dist):
+			min_dist = dist
+			min_mob = mob
+	return min_mob

@@ -54,7 +54,7 @@ func _spawnPin():
 
 func HitBonus(pin : Node2D):
 	pin.queue_free()
-	IncreaseResource(10)
+	IncreaseResource(100)
 
 func HitBase():
 	IncreaseResource(1)
