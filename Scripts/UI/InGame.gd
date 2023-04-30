@@ -30,10 +30,10 @@ func _process(_delta):
 func updateTime():
 	var currentTime = Time.get_ticks_msec() - _runStart
 	var inSecond : int = currentTime/1000
-	var min = "%02d" % (inSecond/60)
+	var minute = "%02d" % (inSecond/60)
 	var sec = "%02d" % (inSecond%60)
 	var msec = "%03d" % (currentTime%1000)
-	_timeLabel.text = min + ":" + sec + ":" + msec
+	_timeLabel.text = minute + ":" + sec + ":" + msec
 
 func updateResources(nb : int):
 	_resourceLabel.text = " : " + str(nb)

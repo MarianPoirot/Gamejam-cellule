@@ -73,7 +73,7 @@ func _on_cooldown_attack_timeout():
 	attack=false
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
 
-func _on_hurtbox_area_entered(area):
+func _on_hurtbox_area_entered(_area):
 	move=false
 	attack=true
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
