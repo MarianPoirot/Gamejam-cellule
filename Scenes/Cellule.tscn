@@ -257,7 +257,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Cellule",
-"speed": 48.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -429,7 +429,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Cellule_prod",
-"speed": 5.0
+"speed": 24.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nx3b0"]
@@ -441,7 +441,7 @@ script = ExtResource("1_yg6xp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_be82w")
-animation = &"Cellule_attack"
+animation = &"Cellule"
 autoplay = "Cellule"
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -9,8 +9,9 @@ var manager : Main
 var currentUpgrade : int = -1
 
 func TransformProd():
-	$AnimatedSprite2D.animation = "Cellule_prod"
+	#$AnimatedSprite2D.animation = "Cellule_prod"
 	$AnimatedSprite2D.scale *= 2
+	$AnimatedSprite2D.play("Cellule_prod")
 	$ProdTimer.start(1)
 	
 func TransformAttack():
@@ -26,7 +27,7 @@ func Spawn(dest : Vector2):
 	tween.parallel().tween_property(self, "scale", Vector2.ONE*0.1, 1).set_trans(Tween.TRANS_QUAD)
 	tween.parallel().tween_property(self, "position", dest, 1)
 
-func _hit(viewport, event, shape_idx):
+func _hit(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.is_pressed()):
 		if(event.button_index == MOUSE_BUTTON_LEFT):
 			emit_signal("getPoint")
