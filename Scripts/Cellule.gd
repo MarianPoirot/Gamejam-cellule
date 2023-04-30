@@ -32,8 +32,7 @@ func _hit(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.is_pressed()):
 		if(event.button_index == MOUSE_BUTTON_LEFT):
 			emit_signal("getPoint")
-		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1:
-			manager.applyUpgradeCost()
+		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1 && manager.CanBuyCurrent():
 			currentUpgrade = manager.SELECTED_UPGRADE
 			match manager.SELECTED_UPGRADE:
 				0:
@@ -42,6 +41,7 @@ func _hit(_viewport, event, _shape_idx):
 					TransformAttack()
 				2:
 					TransformDiv()
+			manager.applyUpgradeCost()
 
 #Manage damage when enemy enter cell
 func _on_area_2d_area_entered(area):

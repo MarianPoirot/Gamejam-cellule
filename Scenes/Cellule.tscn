@@ -644,7 +644,7 @@ script = ExtResource("1_yg6xp")
 sprite_frames = SubResource("SpriteFrames_be82w")
 animation = &"Cellule_div"
 autoplay = "Cellule"
-frame_progress = 0.858066
+frame_progress = 0.0671638
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
