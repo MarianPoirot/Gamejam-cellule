@@ -127,6 +127,8 @@ func removeCellFromMap(cell : Node2D):
 		game_over()
 		
 func game_over():
+	Global.time = $InGame/Time.text
+	Global.score = $InGame/ResourcesGrid/Resource.text
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
 

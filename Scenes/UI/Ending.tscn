@@ -1,8 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ogpxsba1lui"]
+[gd_scene load_steps=4 format=3 uid="uid://b1ogpxsba1lui"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Ending.gd" id="1_pwjae"]
+[ext_resource type="Texture2D" uid="uid://rwxl8hi5r04e" path="res://Assets/Sprites/Sucre/sucre.png" id="2_ga6v1"]
+[ext_resource type="FontFile" uid="uid://eo6ex64dkxt6" path="res://Assets/Fonts/Heart Breaking Bad.otf" id="3_t6pc2"]
 
-[node name="Ending" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Ending" type="CanvasLayer"]
 script = ExtResource("1_pwjae")
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.0
+offset_right = 124.0
+offset_bottom = 77.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 54
+text = "Temps : 0"
+
+[node name="ResourcesGrid" type="GridContainer" parent="."]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 228.0
+offset_bottom = 97.0
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="ResourcesGrid"]
+layout_mode = 2
+texture = ExtResource("2_ga6v1")
+expand_mode = 2
+
+[node name="Resource" type="Label" parent="ResourcesGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = " : 200"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 696.0
+offset_top = 464.0
+offset_right = 974.0
+offset_bottom = 577.0
+theme_override_fonts/font = ExtResource("3_t6pc2")
+theme_override_font_sizes/font_size = 100
+text = "restart"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 361.0
+offset_top = 106.0
+offset_right = 1271.0
+offset_bottom = 426.0
+theme_override_fonts/font = ExtResource("3_t6pc2")
+theme_override_font_sizes/font_size = 150
+text = "Gme
+Over"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
