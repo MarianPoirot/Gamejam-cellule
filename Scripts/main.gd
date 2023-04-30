@@ -32,6 +32,7 @@ func new_game():
 	UI._startRun()
 	UI.updateResources(nbResource)
 	_map.Init()
+	SELECTED_UPGRADE = -1
 	#Cellule originelle
 	var gridCoord = _map.alignCoord(_map.center())
 	var cell = _cellScene.instantiate()
@@ -105,3 +106,6 @@ func updateUpgrade(index : int):
 
 func applyUpgradeCost():
 	IncreaseResource(-1* upgradeCost[SELECTED_UPGRADE])
+	if(nbResource < upgradeCost[SELECTED_UPGRADE]):
+		SELECTED_UPGRADE = -1
+	
