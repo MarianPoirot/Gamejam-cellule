@@ -81,9 +81,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
-		life-=1
-	if life<=0:
-		queue_free()
+		takeDamage(1)
 
 func _on_cooldown_attack_timeout():
 	$CooldownAttack.stop()
@@ -100,3 +98,8 @@ func _on_hurtbox_area_entered(_area):
 	attack=true
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	$CooldownAttack.start()
+
+func takeDamage(damage):
+	life-=damage
+	if life<=0:
+		queue_free()

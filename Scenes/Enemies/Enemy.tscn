@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://2oduk43wu31c"]
+[gd_scene load_steps=36 format=3 uid="uid://2oduk43wu31c"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Enemy.gd" id="1_wbxys"]
 [ext_resource type="Texture2D" uid="uid://druqblhx6ebgq" path="res://Assets/Sprites/kirbo/kirbo.png" id="2_70ifg"]
@@ -143,6 +143,9 @@ animations = [{
 radius = 52.0
 height = 104.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6wh0"]
+radius = 58.0086
+
 [node name="Enemy" type="CharacterBody2D" groups=["mobs"]]
 collision_mask = 2
 script = ExtResource("1_wbxys")
@@ -172,6 +175,13 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_k6l6h")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_g6wh0")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_area_2d_input_event"]

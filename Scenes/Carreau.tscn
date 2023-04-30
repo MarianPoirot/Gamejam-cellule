@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://tky5q2370vtv"]
+
+[ext_resource type="Texture2D" uid="uid://dvucdd3ronuy8" path="res://Assets/Sprites/Carreau/carreau.png" id="1_ltas0"]
+[ext_resource type="Script" path="res://Scripts/Carreau.gd" id="2_ym3x7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owsgx"]
+radius = 57.0
+height = 488.0
+
+[node name="Carreau" type="Sprite2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_ltas0")
+script = ExtResource("2_ym3x7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_owsgx")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
