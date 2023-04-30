@@ -33,6 +33,7 @@ func _hit(_viewport, event, _shape_idx):
 		if(event.button_index == MOUSE_BUTTON_LEFT):
 			emit_signal("getPoint")
 		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1:
+			manager.applyUpgradeCost()
 			currentUpgrade = manager.SELECTED_UPGRADE
 			match manager.SELECTED_UPGRADE:
 				0:

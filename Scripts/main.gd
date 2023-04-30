@@ -10,6 +10,8 @@ var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
 var _cellScene : PackedScene = preload("res://Scenes/Cellule.tscn")
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
+var upgradeCost : Array = [100,100,100]
+
 @onready
 var UI : InGameUI = $InGame
 @onready
@@ -49,7 +51,7 @@ func _spawnPin():
 
 func HitBonus(pin : Node2D):
 	pin.queue_free()
-	IncreaseResource(100)
+	IncreaseResource(10)
 
 func HitBase():
 	IncreaseResource(1)
@@ -99,3 +101,6 @@ func newCell(origine : Vector2):
 
 func updateUpgrade(index : int):
 	SELECTED_UPGRADE = index
+
+func applyUpgradeCost():
+	IncreaseResource(-1* upgradeCost[SELECTED_UPGRADE])
