@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fsr32ee4hmlv"]
+[gd_scene load_steps=9 format=3 uid="uid://fsr32ee4hmlv"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
 [ext_resource type="PackedScene" uid="uid://2oduk43wu31c" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hvn76ei016gj" path="res://Assets/Sprites/Background/background.png" id="3_76do6"]
 [ext_resource type="PackedScene" uid="uid://dp5ysnurplg1j" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
+[ext_resource type="Texture2D" uid="uid://csrr7nvt108mo" path="res://Assets/Sprites/CPUParticles/star.png" id="7_1pk4m"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi1cx"]
 _data = {
@@ -52,6 +53,18 @@ offset_bottom = 33.0
 text = "Restart"
 
 [node name="Cellules" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("7_1pk4m")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
 
 [connection signal="timeout" from="PinTimer" to="." method="_spawnPin"]
 [connection signal="selectUpdate" from="InGame" to="." method="updateUpgrade"]

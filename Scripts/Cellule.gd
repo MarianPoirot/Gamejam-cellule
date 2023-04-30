@@ -46,6 +46,8 @@ func _hit(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.is_pressed()):
 		if(event.button_index == MOUSE_BUTTON_LEFT):
 			emit_signal("getPoint")
+			$CPUParticles2D.modulate=Color(1,1,0,1)
+			$CPUParticles2D.emitting = true
 		if manager.SELECTED_UPGRADE !=-1 && currentUpgrade == -1 && manager.CanBuyCurrent():
 			currentUpgrade = manager.SELECTED_UPGRADE
 			match manager.SELECTED_UPGRADE:
@@ -61,6 +63,8 @@ func _hit(_viewport, event, _shape_idx):
 func _on_area_2d_area_entered(area):
 	var enemy=area.get_parent()
 	life-=enemy.strength
+	$CPUParticles2D.modulate=Color(1,0.5,0,1)
+	$CPUParticles2D.emitting = true
 	if life<=0:
 		die()
 

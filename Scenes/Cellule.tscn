@@ -1,6 +1,6 @@
-[gd_scene load_steps=157 format=3 uid="uid://blnlrk6wq1v0b"]
+[gd_scene load_steps=158 format=3 uid="uid://blnlrk6wq1v0b"]
 
-[ext_resource type="Script" path="res://Scripts/Cellule.gd" id="1_5b6ol"]
+[ext_resource type="Script" path="res://Scripts/Cellule.gd" id="1_h0w65"]
 [ext_resource type="Texture2D" uid="uid://ckee5ptju0sd3" path="res://Assets/Sprites/Cellule/cellule0000.png" id="1_njaje"]
 [ext_resource type="Texture2D" uid="uid://762rc3ast0v0" path="res://Assets/Sprites/Cellule/cellule0001.png" id="2_2j1hd"]
 [ext_resource type="Texture2D" uid="uid://h41wc3jwsqv8" path="res://Assets/Sprites/Cellule/cellule0002.png" id="3_2h17q"]
@@ -153,6 +153,7 @@
 [ext_resource type="Texture2D" uid="uid://xc8r6pcapgra" path="res://Assets/Sprites/Cellule-prod/cellule-prod0050.png" id="101_jogfc"]
 [ext_resource type="Texture2D" uid="uid://b81r6qgi0kjk4" path="res://Assets/Sprites/Cellule-prod/cellule-prod0051.png" id="102_5xwf2"]
 [ext_resource type="Texture2D" uid="uid://dobfqws8omvy8" path="res://Assets/Sprites/Cellule-prod/cellule-prod0052.png" id="103_nd71a"]
+[ext_resource type="Texture2D" uid="uid://csrr7nvt108mo" path="res://Assets/Sprites/CPUParticles/star.png" id="154_11nfv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_be82w"]
 animations = [{
@@ -641,7 +642,7 @@ radius = 3071.04
 
 [node name="Cellule" type="Node2D" groups=["cells"]]
 scale = Vector2(0.1, 0.1)
-script = ExtResource("1_5b6ol")
+script = ExtResource("1_h0w65")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_be82w")
@@ -667,6 +668,18 @@ collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
 shape = SubResource("CircleShape2D_r7jfd")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 10
+lifetime = 0.3
+one_shot = true
+texture = ExtResource("154_11nfv")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_hit"]

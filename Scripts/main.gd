@@ -80,6 +80,7 @@ func _on_mob_timer_timeout():
 	mob.rotation = direction
 	# Set the velocity (speed).
 	mob.speed = randf_range(mob.min_speed, mob.max_speed)
+	mob.enemyDying.connect(OnEnemyDie)
 	mob.start()
 
 func _on_start_button_button_down():
@@ -119,6 +120,9 @@ func CanBuyCurrent() -> bool:
 func removeCellFromMap(cell : Node2D):
 	var mapCoord = _map.local_to_map(cell.position)
 	_map.set_cell(0, mapCoord, -1)
+	$CPUParticles2D.position = cell.position
+	$CPUParticles2D.modulate=Color(1,0,0,1)
+	$CPUParticles2D.emitting = true
 	if get_tree().get_nodes_in_group("cells").size()==1:
 		game_over()
 		
@@ -126,3 +130,7 @@ func game_over():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
 
+func OnEnemyDie(enemy):
+	$CPUParticles2D.position = enemy.position
+	$CPUParticles2D.modulate=Color(1,1,1,1)
+	$CPUParticles2D.emitting = true

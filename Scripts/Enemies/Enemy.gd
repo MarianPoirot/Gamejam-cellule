@@ -12,6 +12,8 @@ var direction
 var dist
 var life
 
+signal enemyDying(Enemy)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -101,5 +103,10 @@ func _on_hurtbox_area_entered(_area):
 
 func takeDamage(damage):
 	life-=damage
+	$CPUParticles2D.emitting = true
 	if life<=0:
-		queue_free()
+		die()
+		
+func die():
+	emit_signal("enemyDying", self)
+	queue_free()
