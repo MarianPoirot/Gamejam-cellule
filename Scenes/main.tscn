@@ -45,16 +45,15 @@ curve = SubResource("Curve2D_gi1cx")
 wait_time = 2.0
 
 [node name="RestartButton" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -95.0
-offset_bottom = 31.0
-grow_horizontal = 0
+offset_left = 1526.0
+offset_top = 2.0
+offset_right = 1597.0
+offset_bottom = 33.0
 text = "Restart"
 
 [node name="Cellules" type="Node2D" parent="."]
 
 [connection signal="timeout" from="PinTimer" to="." method="_spawnPin"]
+[connection signal="selectUpdate" from="InGame" to="." method="updateUpgrade"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="button_down" from="RestartButton" to="." method="_on_start_button_button_down"]
