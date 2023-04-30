@@ -19,10 +19,32 @@ func _ready():
 	var roll = randi()%100
 	if (roll < 99):
 		$AnimatedSprite2D.animation = "virus_move"
-		$AnimatedSprite2D.scale.x=0.125
-		$AnimatedSprite2D.scale.y=0.125
-		strength = 10
-		life = 1
+		var roll2 = randi()%100
+		if (roll < 80):
+			$AnimatedSprite2D.scale.x=0.125
+			$AnimatedSprite2D.scale.y=0.125
+			strength = 10
+			life = 1
+		elif (roll<95):
+			$AnimatedSprite2D.scale.x=0.175
+			$AnimatedSprite2D.scale.y=0.175
+			$ClickArea.scale.x=1.5
+			$ClickArea.scale.y=1.5
+			$Hurtbox.scale.x=1.5
+			$Hurtbox.scale.y=1.5
+			strength = 20
+			life = 2
+			speed -= 15
+		else:
+			$AnimatedSprite2D.scale.x=0.25
+			$AnimatedSprite2D.scale.y=0.25
+			$ClickArea.scale.x=2
+			$ClickArea.scale.y=2
+			$Hurtbox.scale.x=2
+			$Hurtbox.scale.y=2
+			strength = 40
+			life = 3
+			speed -= 30
 	else:
 		$AnimatedSprite2D.animation = "kirbo_move"
 		$AnimatedSprite2D.scale.x=0.25

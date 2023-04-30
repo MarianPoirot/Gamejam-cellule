@@ -157,7 +157,7 @@ autoplay = "kirbo_move"
 scale = Vector2(6, 6)
 
 [node name="ClickArea" type="Area2D" parent="."]
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
 shape = SubResource("CapsuleShape2D_k6l6h")
