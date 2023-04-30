@@ -33,7 +33,7 @@ func new_game():
 	$MobTimer.start()
 	_pinTimer.start(rng.randi_range(1,5))
 	
-	upgradesCost = [100,100,10, 50]
+	upgradesCost = [100,100,10, 25]
 	UI._startRun()
 	UI.UpdateCost(upgradesCost)
 	UI.updateResources(nbResource)
@@ -62,7 +62,7 @@ func HitBonus(pin : Node2D):
 	IncreaseResource(100)
 
 func HitBase():
-	IncreaseResource(1)
+	IncreaseResource(round(clicDamage * 3))
 
 func IncreaseResource(nb : int):
 	nbResource+=nb
@@ -145,3 +145,4 @@ func generalUpgrade(index : int):
 	IncreaseResource(-1* upgradesCost[index])
 	upgradesCost[index] *= 2
 	UI.UpdateCost(upgradesCost)
+	UI.clicDamage = clicDamage

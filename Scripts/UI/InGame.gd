@@ -22,6 +22,8 @@ var divisionButton : TextureButton = $Upgrade/DivisionButton
 @onready
 var cursorButton : TextureButton = $Upgrade/CursorButton
 
+var clicDamage = 1
+
 func _startRun():
 	_runStart = Time.get_ticks_msec()
 
@@ -87,7 +89,7 @@ func _on_cursor_button_toggled(button_pressed):
 
 func UpdateCost(costs : Array):
 	_costs = costs
-	$Upgrade/ProdPrice.text = "Prix : " + str(costs[0])
-	$Upgrade/CombatPrice.text = "Prix : " + str(costs[1])
-	$Upgrade/DivisionPrice.text = "Prix : " + str(costs[2])
-	$Upgrade/CursorPrice.text = "Prix : " + str(costs[3])
+	$Upgrade/ProdPrice.text = str(costs[0]) + " : Mitochondrie"
+	$Upgrade/CombatPrice.text = str(costs[1]) + " : Lymphocyte"
+	$Upgrade/DivisionPrice.text = str(costs[2]) + " : Mitose"
+	$Upgrade/CursorPrice.text = str(costs[3]) + " : Apoptose\n" + str(clicDamage) + " dégâts\n" + str(round(clicDamage * 3)) + " production"

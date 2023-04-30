@@ -68,11 +68,11 @@ anchor_bottom = 1.0
 offset_left = -800.0
 offset_top = -600.0
 offset_right = 200.0
-offset_bottom = 1988.0
+offset_bottom = 2400.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.15, 0.15)
-alignment = 1
+size_flags_horizontal = 0
 
 [node name="ProdButton" type="TextureButton" parent="Upgrade"]
 custom_minimum_size = Vector2(20, 20)
@@ -90,6 +90,7 @@ theme_override_font_sizes/font_size = 100
 text = "Prix : 100"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="CombatButton" type="TextureButton" parent="Upgrade"]
 custom_minimum_size = Vector2(20, 20)
@@ -108,6 +109,7 @@ theme_override_font_sizes/font_size = 100
 text = "Prix : 100"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="DivisionButton" type="TextureButton" parent="Upgrade"]
 custom_minimum_size = Vector2(20, 20)
@@ -126,6 +128,7 @@ theme_override_font_sizes/font_size = 100
 text = "Prix : 100"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="CursorButton" type="TextureButton" parent="Upgrade"]
 custom_minimum_size = Vector2(20, 20)
@@ -141,9 +144,10 @@ stretch_mode = 3
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Prix : 100"
+text = "Prix : 50"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 3
 
 [connection signal="toggled" from="Upgrade/ProdButton" to="." method="_on_prod_button_toggled"]
 [connection signal="toggled" from="Upgrade/CombatButton" to="." method="_on_combat_button_toggled"]

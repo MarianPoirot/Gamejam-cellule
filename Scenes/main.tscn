@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
 [ext_resource type="PackedScene" uid="uid://2oduk43wu31c" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
 [ext_resource type="TileSet" uid="uid://2fpo6d33s7ns" path="res://Assets/MainMap.tres" id="2_hpp5r"]
-[ext_resource type="Texture2D" uid="uid://hvn76ei016gj" path="res://Assets/Sprites/Background/background.png" id="3_76do6"]
+[ext_resource type="Texture2D" uid="uid://b81kwra0strkf" path="res://Assets/Sprites/Background/background.png" id="3_76do6"]
 [ext_resource type="PackedScene" uid="uid://dp5ysnurplg1j" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
 [ext_resource type="Texture2D" uid="uid://csrr7nvt108mo" path="res://Assets/Sprites/CPUParticles/star.png" id="7_1pk4m"]
