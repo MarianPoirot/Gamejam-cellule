@@ -125,3 +125,4 @@ func removeCellFromMap(cell : Node2D):
 func game_over():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
+
