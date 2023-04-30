@@ -10,7 +10,7 @@ var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
 var _cellScene : PackedScene = preload("res://Scenes/Cellule.tscn")
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
-var upgradeCost : Array = [100,100,100]
+var upgradesCost : Array
 
 @onready
 var UI : InGameUI = $InGame
@@ -29,7 +29,9 @@ func new_game():
 	$MobTimer.start()
 	_pinTimer.start(rng.randi_range(1,5))
 	
+	upgradesCost = [100,100,10]
 	UI._startRun()
+	UI.UpdateCost(upgradesCost)
 	UI.updateResources(nbResource)
 	_map.Init()
 	SELECTED_UPGRADE = -1
@@ -53,7 +55,7 @@ func _spawnPin():
 
 func HitBonus(pin : Node2D):
 	pin.queue_free()
-	IncreaseResource(100)
+	IncreaseResource(10)
 
 func HitBase():
 	IncreaseResource(1)
@@ -108,7 +110,8 @@ func updateUpgrade(index : int):
 	SELECTED_UPGRADE = index
 
 func applyUpgradeCost():
-	IncreaseResource(-1* upgradeCost[SELECTED_UPGRADE])
+	IncreaseResource(-1* upgradesCost[SELECTED_UPGRADE])
+	UI.UpdateCost(upgradesCost)
 
 func CanBuyCurrent() -> bool:
 	return nbResource >= upgradeCost[SELECTED_UPGRADE]
