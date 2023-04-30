@@ -2,6 +2,8 @@ extends CanvasLayer
 
 class_name Main
 
+var SELECTED_UPGRADE : int = -1
+
 var nbResource : int = 0
 
 var _pinScene : PackedScene = preload("res://Scenes/Pin.tscn")
@@ -31,14 +33,16 @@ func new_game():
 	#Cellule originelle
 	var gridCoord = _map.alignCoord(_map.center())
 	var cell = _cellScene.instantiate()
+	cell.manager = self
 	cell.position = gridCoord
-	cell.getHit.connect(HitBase)
+	cell.getPoint.connect(HitBase)
 	_cellulesPool.add_child(cell)
 	cell.Spawn(gridCoord)
 	
-func _unhandled_input(event):
-	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
-		newCell(_map.center())
+
+#func _unhandled_input(event):
+#	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed()):
+#		newCell(_map.center())
 
 func _spawnPin():
 	var entity : Node2D = _pinScene.instantiate()
@@ -92,7 +96,12 @@ func newCell(origine : Vector2):
 	var dest = _map.findNeighbor(origine)
 	if dest != origine:
 		var cell = _cellScene.instantiate()
+		cell.manager = self
 		cell.position = origine
-		cell.getHit.connect(HitBase)
+		cell.getPoint.connect(HitBase)
 		_cellulesPool.add_child(cell)
 		cell.Spawn(dest)
+
+func updateUpgrade(index : int):
+	print("Test")
+	SELECTED_UPGRADE = index

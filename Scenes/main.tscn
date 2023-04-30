@@ -54,5 +54,6 @@ text = "Restart"
 [node name="Cellules" type="Node2D" parent="."]
 
 [connection signal="timeout" from="PinTimer" to="." method="_spawnPin"]
+[connection signal="selectUpdate" from="InGame" to="." method="updateUpgrade"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="button_down" from="RestartButton" to="." method="_on_start_button_button_down"]
