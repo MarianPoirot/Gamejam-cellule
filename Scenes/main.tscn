@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1vhrc"]
 [ext_resource type="PackedScene" uid="uid://2oduk43wu31c" path="res://Scenes/Enemies/Enemy.tscn" id="2_7anw3"]
-[ext_resource type="TileSet" uid="uid://nty2jgp37jxk" path="res://Assets/MainMap.tres" id="2_hpp5r"]
-[ext_resource type="Texture2D" uid="uid://hvn76ei016gj" path="res://Assets/Sprites/Background/background.png" id="3_76do6"]
+[ext_resource type="TileSet" uid="uid://2fpo6d33s7ns" path="res://Assets/MainMap.tres" id="2_hpp5r"]
+[ext_resource type="Texture2D" uid="uid://b81kwra0strkf" path="res://Assets/Sprites/Background/background.png" id="3_76do6"]
 [ext_resource type="PackedScene" uid="uid://dp5ysnurplg1j" path="res://Scenes/UI/InGame.tscn" id="3_xv34q"]
 [ext_resource type="Script" path="res://Scripts/Map.gd" id="3_yfgde"]
 
@@ -45,12 +45,10 @@ curve = SubResource("Curve2D_gi1cx")
 wait_time = 2.0
 
 [node name="RestartButton" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -95.0
-offset_bottom = 31.0
-grow_horizontal = 0
+offset_left = 1526.0
+offset_top = 2.0
+offset_right = 1597.0
+offset_bottom = 33.0
 text = "Restart"
 
 [node name="Cellules" type="Node2D" parent="."]
