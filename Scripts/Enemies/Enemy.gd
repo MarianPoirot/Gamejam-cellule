@@ -34,6 +34,7 @@ func _ready():
 			$Hurtbox.scale.y=1.5
 			strength = 20
 			life = 2
+			speed -= 15
 		else:
 			$AnimatedSprite2D.scale.x=0.25
 			$AnimatedSprite2D.scale.y=0.25
@@ -41,9 +42,9 @@ func _ready():
 			$ClickArea.scale.y=2
 			$Hurtbox.scale.x=2
 			$Hurtbox.scale.y=2
-			strength = 50
+			strength = 40
 			life = 3
-			speed -= 10
+			speed -= 30
 	else:
 		$AnimatedSprite2D.animation = "kirbo_move"
 		$AnimatedSprite2D.scale.x=0.25
