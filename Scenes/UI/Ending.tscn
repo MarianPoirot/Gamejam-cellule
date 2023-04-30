@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1ogpxsba1lui"]
+[gd_scene load_steps=5 format=3 uid="uid://b1ogpxsba1lui"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Ending.gd" id="1_pwjae"]
 [ext_resource type="Texture2D" uid="uid://rwxl8hi5r04e" path="res://Assets/Sprites/Sucre/sucre.png" id="2_ga6v1"]
 [ext_resource type="FontFile" uid="uid://eo6ex64dkxt6" path="res://Assets/Fonts/Heart Breaking Bad.otf" id="3_t6pc2"]
+[ext_resource type="AudioStream" uid="uid://tvg3j2s3gw5j" path="res://Assets/Sons/cry.ogg" id="4_ve1bi"]
 
 [node name="Ending" type="CanvasLayer"]
 script = ExtResource("1_pwjae")
@@ -55,5 +56,8 @@ theme_override_font_sizes/font_size = 150
 text = "Gme
 Over"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ve1bi")
 
 [connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
