@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/InGame.gd" id="1_7r3xs"]
 [ext_resource type="Texture2D" uid="uid://dxllry3skqvam" path="res://Assets/Sprites/Sucre/sucre.png" id="2_f6rgk"]
-[ext_resource type="Texture2D" uid="uid://bybpx2isrrlj" path="res://Assets/Sprites/Cellule-prod/cellule-prod0000.png" id="3_a2580"]
+[ext_resource type="Texture2D" uid="uid://o67pjhkfkp24" path="res://Assets/Sprites/Cellule-prod/cellule-prod0000.png" id="3_a2580"]
 [ext_resource type="Texture2D" uid="uid://dslmay2804fp0" path="res://Assets/Sprites/Cellule-prod/cell-prod-disabled.png" id="4_g07c4"]
-[ext_resource type="Texture2D" uid="uid://bru824h2760qe" path="res://Assets/Sprites/Cellule-combat/cellule-combat.png" id="4_mif7i"]
-[ext_resource type="Texture2D" uid="uid://dt00yj0i56lqj" path="res://Assets/Sprites/Cellule-combat/cellule-combat-disabled.png" id="6_rpiep"]
-[ext_resource type="Texture2D" uid="uid://dl8po6mf7jnsm" path="res://Assets/Sprites/Cellule-division/cellule-division0000.png" id="7_4877j"]
-[ext_resource type="Texture2D" uid="uid://bramp3mvyml75" path="res://Assets/Sprites/Cellule-division/Cellule-division-disabled.png" id="8_avt65"]
+[ext_resource type="Texture2D" uid="uid://4ifyuc1thovg" path="res://Assets/Sprites/Cellule-combat/cellule-combat.png" id="4_mif7i"]
+[ext_resource type="Texture2D" uid="uid://o0tt0g6dntnx" path="res://Assets/Sprites/Cellule-combat/cellule-combat-disabled.png" id="6_rpiep"]
+[ext_resource type="Texture2D" uid="uid://bnrt5mepma2sg" path="res://Assets/Sprites/Cellule-division/cellule-division0000.png" id="7_4877j"]
+[ext_resource type="Texture2D" uid="uid://drfesw0rx44hx" path="res://Assets/Sprites/Cellule-division/Cellule-division-disabled.png" id="8_avt65"]
 
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_7r3xs")
