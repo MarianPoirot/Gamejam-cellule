@@ -9,3 +9,6 @@ func Spawn():
 func _on_static_body_2d_input_event(_viewport, event, _shape_idx):
 	if(event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()):
 		emit_signal("getHit", self)
+
+func _on_static_body_2d_area_entered(area):
+	queue_free()

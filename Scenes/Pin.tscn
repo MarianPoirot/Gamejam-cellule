@@ -17,9 +17,9 @@ texture = ExtResource("2_6xlom")
 
 [node name="StaticBody2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CapsuleShape2D_cpcgd")
 
+[connection signal="area_entered" from="StaticBody2D" to="." method="_on_static_body_2d_area_entered"]
 [connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
