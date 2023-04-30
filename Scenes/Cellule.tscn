@@ -1,7 +1,7 @@
 [gd_scene load_steps=156 format=3 uid="uid://blnlrk6wq1v0b"]
 
 [ext_resource type="Texture2D" uid="uid://bb3o83vcm4pm" path="res://Assets/Sprites/Cellule/cellule0000.png" id="1_njaje"]
-[ext_resource type="Script" path="res://Scripts/Cellule.gd" id="1_yg6xp"]
+[ext_resource type="Script" path="res://Scripts/Cellule.gd" id="1_q0anb"]
 [ext_resource type="Texture2D" uid="uid://cp0wj1apukyxj" path="res://Assets/Sprites/Cellule/cellule0001.png" id="2_2j1hd"]
 [ext_resource type="Texture2D" uid="uid://c44yqv11phmfs" path="res://Assets/Sprites/Cellule/cellule0002.png" id="3_2h17q"]
 [ext_resource type="Texture2D" uid="uid://2fr0qny2mdva" path="res://Assets/Sprites/Cellule/cellule0003.png" id="4_0ixkv"]
@@ -638,7 +638,7 @@ radius = 480.0
 
 [node name="Cellule" type="Node2D" groups=["cells"]]
 scale = Vector2(0.1, 0.1)
-script = ExtResource("1_yg6xp")
+script = ExtResource("1_q0anb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_be82w")
