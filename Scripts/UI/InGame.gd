@@ -80,7 +80,7 @@ func _on_cursor_button_toggled(button_pressed):
 		prodButton.button_pressed = false
 		combatButton.button_pressed = false
 		divisionButton.button_pressed = false
-		emit_signal("generalUpgrade",1)
+		emit_signal("generalUpgrade",3)
 	if(!button_pressed && cursorButton.pressed):
 		emit_signal("selectUpdate",-1)
 

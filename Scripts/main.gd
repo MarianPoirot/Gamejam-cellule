@@ -131,6 +131,7 @@ func game_over():
 		print ("Error passing from Opening scene to main scene")
 
 func generalUpgrade(index : int):
-	if index == 1:
-		clicDamage += 0.2
-		#UI.UpdateCost(upgradesCost)
+	clicDamage += 0.2
+	IncreaseResource(-1* upgradesCost[index])
+	upgradesCost[index] *= 2
+	UI.UpdateCost(upgradesCost)
